@@ -1,14 +1,14 @@
 version: '3'
 services:
-  api:
+  web:
     build:
       context: ./
       dockerfile: Dockerfile
+    depends_on:
+      - api
     restart: always
-  dash:
+  api:
     build:
       context: ./
       dockerfile: Dockerfile1
-    depends_on:
-      - api
     restart: always
