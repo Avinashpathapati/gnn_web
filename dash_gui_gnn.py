@@ -17,7 +17,6 @@ import pandas as pd
 
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
-server = app.server
 
 
 app.layout = html.Div([
@@ -132,4 +131,5 @@ def update_output(list_of_contents, modal_close, list_of_names, list_of_dates):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    port = int(os.environ.get("PORT", 8050))
+    app.run_server(debug=True,host=‘0.0.0.0’, port=port)
